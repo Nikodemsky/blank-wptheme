@@ -141,13 +141,13 @@ function disable_oembed_on_site() {
 add_action( 'init', 'disable_oembed_on_site' );
 
 // Disable RSS feeds completely  
-add_action('do_feed', 'wp_disable_feeds', 1);
+/*add_action('do_feed', 'wp_disable_feeds', 1);
 add_action('do_feed_rdf', 'wp_disable_feeds', 1);
 add_action('do_feed_rss', 'wp_disable_feeds', 1);
 add_action('do_feed_rss2', 'wp_disable_feeds', 1);
 add_action('do_feed_atom', 'wp_disable_feeds', 1);
 add_action('do_feed_rss2_comments', 'wp_disable_feeds', 1);
-add_action('do_feed_atom_comments', 'wp_disable_feeds', 1);
+add_action('do_feed_atom_comments', 'wp_disable_feeds', 1);*/
 
 function wp_disable_feeds() {
     wp_die( __('No feeds available!') );
@@ -443,4 +443,5 @@ add_action('wp_trash_post', 'clear_post_type_globals_cache');
 add_action('untrash_post', 'clear_post_type_globals_cache');
 
 add_action('init', 'set_post_type_globals');*/
+
 
