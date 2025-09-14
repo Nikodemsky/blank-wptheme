@@ -76,7 +76,7 @@
 
 <div id="page" class="site">
 
-	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Przejdź do zawartości', 'wg-blank' ); ?></a>
+	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Go to content', 'wg-blank' ); ?></a>
 
 	<header id="masthead" class="site-header">
 
