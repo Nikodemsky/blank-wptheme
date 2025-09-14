@@ -1,0 +1,49 @@
+/**!! MAIN THEME STYLING !!**/
+
+/* Main variables */
+:root {
+    /*--main-coulour01-id: #FF0000;
+	color: var(--main-coulour01-id);*/
+}
+
+/* Optional property helpers */
+/*@property --val {
+	syntax: "<variable_>";
+	inherits: false;
+	initial_value: __;
+}*/
+
+/* Text highlight styling */
+/*::target-text {
+	background-color: #000;
+	color: #fff;
+}*/
+
+/****** 00 GENERAL CLASSES *******/
+
+body {
+	/*font-family: '', sans-serif;*/
+	/*line-height: __px*/
+}
+
+@media (min-width: 1025px) {.hide-desktop{display: none !important}}
+
+/*** Grid ***/
+
+.container {
+	/*max-width: XXXXpx;*/
+	width: 100%;
+	position: relative;
+	margin: 0 auto;
+}
+
+@media (min-width:1025px) and (max-width:1200px) {
+	.container {
+		max-width: 95%;
+	}
+}
+
+/*@media (min-width: 1365px) {.container{max-width: XXXXpx}}
+@media (min-width: 1679px) {.container{max-width: XXXXpx}}*/
+
+/****** HEADER *******/
