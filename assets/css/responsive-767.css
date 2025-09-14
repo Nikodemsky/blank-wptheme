@@ -1,0 +1,23 @@
+@media (max-width: 767px) {
+
+/****** 00 GENERAL CLASSES *******/
+
+html,
+body,
+.site {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.hide-mobile {
+    display: none !important;
+}
+
+/*** Grid ***/
+
+.container {
+    padding: 0 30px;
+    max-width: 100%;
+}
+
+}
