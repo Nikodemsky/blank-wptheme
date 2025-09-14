@@ -1,6 +1,6 @@
 ### Theme screenshot
 https://www.pexels.com/photo/html-code-270366/
-it's heavy, but it looks cool; it's simply placeholder.
+it's heavy, but it looks cool; simple placeholder.
 
 ### SEO
 The theme is designed to work the The SEO Framework (Schema markups in header.php)
