@@ -6,7 +6,7 @@ it's heavy, but it looks cool; simple placeholder.
 The theme is designed to work the [The SEO Framework](https://wordpress.org/plugins/autodescription/) (Schema markups in header.php)
 
 ### Schema in header
-`function_exists()` check HAS to be loaded after `wp_head`, otherwise `tsf` (from The Seo Framework) might not be found.
+`function_exists` check HAS to be loaded after `wp_head`, otherwise `tsf` (from The Seo Framework) might not be found.
 
 ### Why Customizer?
 While you can change favicon directly from admin panel, Custom logo still has to go through customizer - even site-editor still have no support for this.
