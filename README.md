@@ -19,7 +19,7 @@ While you can change favicon directly from admin panel, Custom logo still has to
 https://splidejs.com/ - even tho it's abandoned, still works properly on most of the scenarios, bug-free. Not really fan of Embla or Glide and Blaze is abandonware too.
 
 ### utilities.css: CF7 fix
-Spinner is messing up the margins for the submit button styling and :disabled is pretty much self-explanatory
+Spinner is messing up the margins for the submit button styling and :disabled is pretty much self-explanatory.
 
 ### utilities.css: Normalization fixes?
 * Custom fixes for normalization, that are not so much needed. 
@@ -44,7 +44,7 @@ Simple, 100%-proven way to remove comments system from Wordpress. No need for th
 Consider it as addon, not really keen on using the native oembed feature on the website. Still, we want it to work anywhere else tho.
 
 ### functions.php: RSS removal
-Most of the times we pretty much not using those. No need for Wordpress to update those.
+Obscure functionality. No need for Wordpress to update those.
 
 ### functions.php: Widgets removal
 By default there's no need for using those anymore.
@@ -83,11 +83,12 @@ Space optimization, those are not really commonly used.
 From my personal tests - GD works way faster, than the default one. It saves a lot of time.
 
 ### functions.php: optional, custom, cached checks for post existence
-Custom functionality - check for posts existence from various types - cache included, before actually go through each loops. Made for better optimization.
+Custom functionality - check for posts existence from various types - cache included, before actually go through each loops. 
+Made for better optimization.
 
-Of course, if there is no translation plugin on the installation, there's easier and faster way:
+Of course, if there is no translation plugin enabled, there's easier and faster way:
 ```
 $blogposts_count = wp_count_posts('post');
 $blogposts_exists = $blogposts_count->publish > 0;
 ```
-but it only checks for default langugage.
+but it only checks for default language.
