@@ -1,0 +1,22 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"settings": {
+		"appearanceTools": true
+	},
+	"styles": {},
+	"customTemplates": {},
+	"templateParts": [
+		{
+			"area": "header",
+			"name": "header",
+			"title": "Site header"
+		},
+		{
+			"area": "footer",
+			"name": "footer",
+			"title": "Site footer"
+		}
+	],
+	"patterns": []
+}
