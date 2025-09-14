@@ -368,7 +368,7 @@ add_action( 'wp_enqueue_scripts', 'loadk_scripts' );
 }
 add_filter( 'wp_image_editors', 'wpb_image_editor_default_to_gd' );*/
 
-// Custom, cached checks for post existance
+// Custom, cached checks for post existence
 /*function set_post_type_globals() {
     
     global $wpdb, $blog_has_posts, $awards_exists, $people_exist;
@@ -443,6 +443,7 @@ add_action('wp_trash_post', 'clear_post_type_globals_cache');
 add_action('untrash_post', 'clear_post_type_globals_cache');
 
 add_action('init', 'set_post_type_globals');*/
+
 
 
 
