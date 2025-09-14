@@ -301,8 +301,8 @@ add_filter('image_size_names_choose', 'remove_unused_image_sizes_from_acf_wysiwy
 // Register custom nav menus
 /*function add_nav_menus() {
     register_nav_menus( array(
-        'header-helpers'=> __( 'Menu pomocnicze nagłówek', 'wg-blank' ),
-        'footer-menu'=> __( 'Menu w stopce', 'wg-blank' ),
+        'header-helpers'=> __( 'Helper menu - header', 'wg-blank' ),
+        'footer-menu'=> __( 'Footer menu', 'wg-blank' ),
     ));
 }
 add_action('init', 'add_nav_menus');*/
@@ -315,11 +315,11 @@ add_action('init', 'add_nav_menus');*/
 function my_acf_op_init() {
     if( function_exists('acf_add_options_page') ) {
         $option_page = acf_add_options_page(array(
-            'page_title'    => __('Ustawienia CTA', 'wg-blank'),
-            'menu_title'    => __('Ustawienia CTA', 'wg-blank'),
+            'page_title'    => __('CTA Settings', 'wg-blank'),
+            'menu_title'    => __('CTA Settings', 'wg-blank'),
             'menu_slug'     => 'theme-general-settings',
             'capability'    => 'edit_posts',
-            'update_button' => __('Zapisz ustawienia', 'wg-blank'),
+            'update_button' => __('Save settings', 'wg-blank'),
             'icon_url'      => 'dashicons-megaphone',
             'autoload'      => true,
             'position'      => 45,
@@ -441,4 +441,5 @@ add_action('save_post', 'clear_post_type_globals_cache');
 add_action('delete_post', 'clear_post_type_globals_cache');
 add_action('wp_trash_post', 'clear_post_type_globals_cache');
 add_action('untrash_post', 'clear_post_type_globals_cache');
+
 add_action('init', 'set_post_type_globals');*/
