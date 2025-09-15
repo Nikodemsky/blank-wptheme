@@ -89,7 +89,7 @@ function disable_emojis_tinymce( $plugins ) {
 }
 
 // Removes comments completely
-/*add_action('admin_init', function () {
+add_action('admin_init', function () {
 
     global $pagenow;
     
@@ -127,7 +127,7 @@ function remove_comments(){
     global $wp_admin_bar;
     $wp_admin_bar->remove_menu('comments');
 }
-add_action( 'wp_before_admin_bar_render', 'remove_comments' );*/
+add_action( 'wp_before_admin_bar_render', 'remove_comments' );
 
 // Disable oEmbed on the website but keep it enabled for external platforms
 function disable_oembed_on_site() {
@@ -290,11 +290,17 @@ add_filter('intermediate_image_sizes', function($sizes) {
 
 // IF ACF
 /*function remove_unused_image_sizes_from_acf_wysiwyg($sizes) {
-    unset($sizes['medium_large']);
-    unset($sizes['large']);
-    unset($sizes['thumbnail']);
-    
-    return $sizes;
+
+	if (array_filter(['advanced-custom-fields-pro/acf.php', 'advanced-custom-fields/acf.php'], 'is_plugin_active')) :
+
+	    unset($sizes['medium_large']);
+	    unset($sizes['large']);
+	    unset($sizes['thumbnail']);
+	    
+	    return $sizes;
+
+	endif;
+ 
 }
 add_filter('image_size_names_choose', 'remove_unused_image_sizes_from_acf_wysiwyg');*/
 
@@ -443,7 +449,3 @@ add_action('wp_trash_post', 'clear_post_type_globals_cache');
 add_action('untrash_post', 'clear_post_type_globals_cache');
 
 add_action('init', 'set_post_type_globals');*/
-
-
-
-
