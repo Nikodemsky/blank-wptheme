@@ -38,7 +38,7 @@ Because of that nothing related to Gutenberg will work properly on the frontend.
 Bloatware.
 
 ### functions.php: Comments removal
-Simple, 100%-proven way to remove comments system from Wordpress. No need for third-party plugins.
+Simple, 100%-proven way to remove comments system from Wordpress. No need for third-party plugins. By default comment system should be disabled and enabled only if project require to do so.
 
 ### functions.php: oembed change
 Consider it as addon, not really keen on using the native oembed feature on the website. Still, we want it to work anywhere else tho.
@@ -47,7 +47,7 @@ Consider it as addon, not really keen on using the native oembed feature on the 
 Obscure functionality. No need for Wordpress to update those.
 
 ### functions.php: Widgets removal
-By default there's no need for using those anymore.
+Used only in very specific cases.
 
 ### functions.php: Really Simple Discovery removal
 Bloatware.
@@ -62,10 +62,10 @@ It's not really needed anymore.
 Bloatware, that could potentially lag admin panel too much in certain cases.
 
 ### functions.php: Rest API links removal from header
-Not really need to have those. 
+No need to reveal those in header.
 
 ### functions.php: Self-pingbacks removal
-It's useless functionality to begin with.
+Underutilized functionality to begin with.
 
 ### functions.php: built-in sitemap removal
 Since theme is made to use with The SEO Framework, there's no need to have native sitemaps.
