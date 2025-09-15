@@ -23,7 +23,7 @@ Spinner is messing up the margins for the submit button styling and :disabled is
 
 ### utilities.css: Normalization fixes?
 * Custom fixes for normalization;
-* As for commented overflow-x-hiddem, hiding overflow is messing up multiple of native CSS API's, so it's only here if actually needed.
+* As for commented overflow-x-hiddem, overflow with "hidden" value is messing up multiple of native CSS API's, so it's only here if actually needed.
 
 ### functions.php: Removal of WP version from RSS
 Security measure.
