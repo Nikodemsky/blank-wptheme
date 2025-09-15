@@ -86,7 +86,7 @@ From my personal tests - GD works way faster, than the default one. It saves a l
 Custom functionality - check for posts existence from various types - cache included, before actually go through each loops. 
 Made for better optimization.
 
-Of course, if there is no translation plugin enabled, there's easier and faster way:
+Of course, if there is no translation plugin present, there's an easier and faster way:
 ```
 $blogposts_count = wp_count_posts('post');
 $blogposts_exists = $blogposts_count->publish > 0;
