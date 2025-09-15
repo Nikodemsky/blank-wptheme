@@ -1,6 +1,6 @@
 ### Theme screenshot
 https://www.pexels.com/photo/html-code-270366/
-it's heavy, but it looks cool; simple placeholder.
+it's heavy, but it looks cool; placeholder.
 
 ### SEO
 The theme is designed to work the [The SEO Framework](https://wordpress.org/plugins/autodescription/) (Schema markups in header.php)
@@ -9,20 +9,20 @@ The theme is designed to work the [The SEO Framework](https://wordpress.org/plug
 `function_exists` check HAS to be loaded after `wp_head`, otherwise `tsf` (from The Seo Framework) might not be found.
 
 ### Why Customizer?
-While you can change favicon directly from admin panel, Custom logo still has to go through customizer - even site-editor still have no support for this.
+While you can change favicon directly from admin panel, custom logo still has to go through customizer - even site-editor still have no support for this.
 
 ### utilities.css: Why so much code for "a" element styling in utilities? 
 * Mostly for fixing the flickering under different circumstances in chromium browsers.
 * As for .35s timing - it feels like sweet spot, for smooth and not too "drastic" transition.
 
 ### utilities.css: Splide fix?
-https://splidejs.com/ - even tho it's abandoned, still works properly on most of the scenarios, bug-free. Not really fan of Embla or Glide and Blaze is abandonware too.
+https://splidejs.com/ - even tho it's abandoned, still works properly on most of the scenarios, bug-free. Not really fan of [Embla](https://www.embla-carousel.com/) or [Glide](https://glidejs.com/); [Blaze](https://blaze-slider.dev/) would be good alternative as barebone template, but it's abandonware too.
 
 ### utilities.css: CF7 fix
 Spinner is messing up the margins for the submit button styling and :disabled is pretty much self-explanatory.
 
 ### utilities.css: Normalization fixes?
-* Custom fixes for normalization, that are not so much needed. 
+* Custom fixes for normalization;
 * As for commented overflow-x-hiddem, hiding overflow is messing up multiple of native CSS API's, so it's only here if actually needed.
 
 ### functions.php: Removal of WP version from RSS
@@ -38,13 +38,13 @@ Because of that nothing related to Gutenberg will work properly on the frontend.
 Bloatware.
 
 ### functions.php: Comments removal
-Simple, 100%-proven way to remove comments system from Wordpress. No need for third-party plugins. By default comment system should be disabled and enabled only if project require to do so.
+Simple, 100%-proven way to remove comment system from Wordpress. No need for third-party plugins. By default comment system should be disabled and enabled only if project require to do so.
 
 ### functions.php: oembed change
 Consider it as addon, not really keen on using the native oembed feature on the website. Still, we want it to work anywhere else tho.
 
 ### functions.php: RSS removal
-Obscure functionality. No need for Wordpress to update those.
+Obscure functionality. No need for Wordpress to update those unless actually needed.
 
 ### functions.php: Widgets removal
 Used only in very specific cases.
