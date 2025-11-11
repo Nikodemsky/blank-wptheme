@@ -1,5 +1,7 @@
 @media (max-width: 767px) {
 
+    .hide-mobile {display: none !important;}
+
     /****** 00 GENERAL CLASSES *******/
 
     html,
@@ -8,7 +10,5 @@
         max-width: 100%;
         overflow-x: hidden;
     }
-
-    .hide-mobile {display: none !important;}
 
 }
