@@ -2,7 +2,8 @@
 
 /* Main variables */
 :root {
-    /*--main-coulour01-id: #FF0000;
+    /*--container_width: ____px;
+	--main-coulour01-id: #______;
 	color: var(--main-coulour01-id);*/
 }
 
@@ -28,22 +29,12 @@ body {
 
 @media (min-width: 1025px) {.hide-desktop{display: none !important}}
 
-/*** Grid ***/
+/*** Containers ***/
 
 .container {
-	/*max-width: XXXXpx;*/
-	width: 100%;
+	width: clamp(320px, calc(100% - 60px), var(--container_width));
 	position: relative;
 	margin: 0 auto;
 }
-
-@media (min-width:1025px) and (max-width:1200px) {
-	.container {
-		max-width: 95%;
-	}
-}
-
-/*@media (min-width: 1365px) {.container{max-width: XXXXpx}}
-@media (min-width: 1679px) {.container{max-width: XXXXpx}}*/
 
 /****** HEADER *******/
