@@ -8,10 +8,16 @@ const navigation = document.querySelector('#slide-menu');
 menuBtn.addEventListener('click', toggleClasses);
 
 function toggleClasses() {
+
   // Toggle classes for the button spans
   closedSpan.classList.toggle('hidden');
   openedSpan.classList.toggle('hidden');
 
   // Toggle the 'visible' class for the navigation
   navigation.classList.toggle('visible');
+
+  // Accessibility
+  navigation.toggleAttribute('intert','');
+  menuBtn.toggleAttribute('aria-expanded-true','');
+
 }*/
