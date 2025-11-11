@@ -3,6 +3,7 @@
 /* Main variables */
 :root {
     /*--container_width: ____px;
+	--default_animation_time: .__s;
 	--main-coulour01-id: #______;
 	color: var(--main-coulour01-id);*/
 }
@@ -25,6 +26,11 @@
 body {
 	/*font-family: '', sans-serif;*/
 	/*line-height: __px*/
+}
+
+a {
+	-webkit-transition: all var(--default_animation_time) ease-in-out;
+	transition: all var(--default_animation_time) ease-in-out;
 }
 
 @media (min-width: 1025px) {.hide-desktop{display: none !important}}
