@@ -1,23 +1,14 @@
 @media (min-width: 768px) and (max-width: 1024px) {
 
-.hide-tablet {
-	display: none !important;
-}
-
-/****** 00 GENERAL CLASSES *******/
-
-html,
-body,
-.site {
-    max-width: 100%;
-    overflow-x: hidden;
-}
-
-/*** Grid ***/
-
-.container {
-    padding: 0 30px;
-    max-width: 100%;
-}
+	.hide-tablet{display: none !important;}
+	
+	/****** 00 GENERAL CLASSES *******/
+	
+	html,
+	body,
+	.site {
+	    max-width: 100%;
+	    overflow-x: hidden;
+	}
 
 }
