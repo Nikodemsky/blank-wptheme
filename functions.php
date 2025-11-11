@@ -239,15 +239,13 @@ function wg_styles() {
     wp_register_style( 'utilities', $theme_dir . '/assets/css/utilities.css', array(), '1.1' );
     wp_register_style( 'wg-css', $theme_dir . '/assets/css/wg.css', array(), '1.00' ); 
     wp_register_style( 'responsive-767', $theme_dir . '/assets/css/responsive-767.css', array(), '1.00' ); 
-    wp_register_style( 'responsive-1024', $theme_dir . '/assets/css/responsive-1024.css', array(), '1.00' ); 
-    //wp_register_style( 'responsive-1279', $theme_dir . '/responsive-1279.css', array(), '1.00' ); 
+    wp_register_style( 'responsive-1024', $theme_dir . '/assets/css/responsive-1024.css', array(), '1.00' );
     
     wp_enqueue_style( 'css-normalize-substrate-system' );
     wp_enqueue_style( 'utilities' );
     wp_enqueue_style( 'wg-css' );
     wp_enqueue_style( 'responsive-767' );
     wp_enqueue_style( 'responsive-1024' );
-    //wp_enqueue_style( 'responsive-1279' );
 
 }
 add_action( 'wp_enqueue_scripts', 'wg_styles' );
@@ -316,7 +314,7 @@ add_action('init', 'add_nav_menus');*/
 // ACF options page
 //if( function_exists('acf_add_options_page') ) { acf_add_options_page('Opcje witryny'); }
 
-// ACF options page v2
+// ACF options page - full version with array
 /*add_action('acf/init', 'my_acf_op_init');
 function my_acf_op_init() {
     if( function_exists('acf_add_options_page') ) {
@@ -349,7 +347,7 @@ function loadk_scripts() {
     // SVG loader - global
     //wp_enqueue_script( 'svg-loader', $theme_dir . '/assets/js/svg-loader.js', array(), '', true );
 
-    // Smoothscroll
+    // Smoothscroll - only as fallback/alternative to browser's native scroll-behaviour:smooth
     //wp_enqueue_script( 'scroll-to-id', $theme_dir . '/assets/js/scrolltoid.js', array(), '', true );
     /* use as: onclick="smoothScrollToId('your-section-id', 500, 30); return false;" on <a> elements;
     first parameter is ID, second is duration and third is offset */
@@ -449,3 +447,4 @@ add_action('wp_trash_post', 'clear_post_type_globals_cache');
 add_action('untrash_post', 'clear_post_type_globals_cache');
 
 add_action('init', 'set_post_type_globals');*/
+
