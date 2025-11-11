@@ -1,6 +1,6 @@
 @media (max-width: 767px) {
 
-    .hide-mobile {display: none !important;}
+    .hide-mobile{display:none !important;}
 
     /****** 00 GENERAL CLASSES *******/
 
@@ -12,3 +12,4 @@
     }
 
 }
+
