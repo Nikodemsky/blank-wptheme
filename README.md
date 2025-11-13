@@ -31,51 +31,6 @@ Security measure.
 ### functions.php: `add_theme_support( 'custom-line-height' );`
 For styling line-height in site-editor.
 
-### functions.php: Removal of gutenberg assets
-Because of that nothing related to Gutenberg will work properly on the frontend. By design.
-
-### functions.php: Emojis removal
-Bloatware.
-
-### functions.php: Comments removal
-Simple, 100%-proven way to remove comment system from Wordpress. No need for third-party plugins. By default comment system should be disabled and enabled only if project require to do so.
-
-### functions.php: oembed change
-Consider it as addon, not really keen on using the native oembed feature on the website. Still, we want it to work anywhere else tho.
-
-### functions.php: RSS removal
-Obscure functionality. No need for Wordpress to update those unless actually needed.
-
-### functions.php: Widgets removal
-Used only in very specific cases.
-
-### functions.php: Really Simple Discovery removal
-Bloatware.
-
-### functions.php: Wordpress shortlink removal
-Bloatware.
-
-### functions.php: Jquery Migrate removal
-It's not really needed anymore.
-
-### functions.php: Admin widgets dashboard removal
-Bloatware, that could potentially lag admin panel too much in certain cases.
-
-### functions.php: Rest API links removal from header
-No need to reveal those in header.
-
-### functions.php: Self-pingbacks removal
-Underutilized functionality to begin with.
-
-### functions.php: built-in sitemap removal
-Since theme is made to use with The SEO Framework, there's no need to have native sitemaps.
-
-### functions.php: XMLRPC removal
-Security measure.
-
-### functions.php: Heartbeat interval change
-Wordpress natievely checking this too often, it does affect performance.
-
 ### functions.php: Removal of some native image sizes
 Space optimization, those are not really commonly used.
 
