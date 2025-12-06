@@ -3,7 +3,7 @@ https://www.pexels.com/photo/html-code-270366/
 it's heavy, but it looks cool; placeholder.
 
 ### SEO
-The theme is designed to work the [The SEO Framework](https://wordpress.org/plugins/autodescription/) (Schema markups in header.php)
+The theme is designed to work the [The SEO Framework](https://wordpress.org/plugins/autodescription/) (Schema markup in header.php)
 
 ### Schema in header
 `function_exists` check HAS to be loaded after `wp_head`, otherwise `tsf` (from The Seo Framework) might not be found.
@@ -33,9 +33,6 @@ For styling line-height in site-editor.
 
 ### functions.php: Removal of some native image sizes
 Space optimization, those are not really commonly used.
-
-### functions.php Optional change image process engine
-From my personal tests - GD works way faster, than the default one. It saves a lot of time.
 
 ### functions.php: optional, custom, cached checks for post existence
 Custom functionality - check for posts existence from various types - cache included, before actually go through each loops. 
