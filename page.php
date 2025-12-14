@@ -1,9 +1,9 @@
 <?php get_header(); ?>
 
-<main id="primary" class="site-main">
+<main id="primary" class="site__main">
 
 	<!-- Page content / Zawartosc podstrony -->
-	<section id="zawartosc" class="site-main__default-page-wrapper">
+	<section class="default-page-wrapper">
 
 		<div class="container">
 
