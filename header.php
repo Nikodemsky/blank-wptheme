@@ -31,10 +31,10 @@
 
 		<?php the_custom_logo(); ?>
 
-		<nav id="glowna-nawigacja" class="site-header__main-navigation">
+		<nav class="top-navigation">
 			<?php wp_nav_menu( array(
 				'theme_location' => 'menu-1',
-				'menu_id' => 'primary-menu',
+				'menu_id' => 'primary-menu-header',
 			)); ?>
 		</nav><!-- #site-navigation -->
 
