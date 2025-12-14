@@ -3,7 +3,7 @@
 <main id="primary" class="site-main">
 
 	<!-- Page content / Zawartosc podstrony -->
-	<section id="zawartosc" class="default-page-wrapper">
+	<section id="zawartosc" class="site-main__default-page-wrapper">
 
 		<div class="container">
 
@@ -12,7 +12,7 @@
 				<?php the_content(); ?>
 			</article>
 
-			<div class="dp-goback-wrapper">
+			<div class="default-page-wrapper__goback">
 				<a href="<?php echo get_home_url(); ?>" class="default-btn"><span><?php _e('Home','wg-blank'); ?></span></a>
 			</div>
 
