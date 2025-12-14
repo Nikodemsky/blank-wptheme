@@ -1,4 +1,4 @@
-<footer id="stopka" class="site__footer">
+<footer class="site__footer">
 </footer><!-- #colophon -->
 
 </div><!-- #page -->
