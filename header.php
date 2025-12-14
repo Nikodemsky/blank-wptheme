@@ -27,11 +27,11 @@
 
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Go to content', 'wg-blank' ); ?></a>
 
-	<header id="masthead" class="site-header">
+	<header id="masthead" class="site__header">
 
 		<?php the_custom_logo(); ?>
 
-		<nav id="site-navigation" class="main-navigation">
+		<nav id="glowna-nawigacja" class="site-header__main-navigation">
 			<?php wp_nav_menu( array(
 				'theme_location' => 'menu-1',
 				'menu_id' => 'primary-menu',
