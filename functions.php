@@ -60,9 +60,9 @@ function wg_styles() {
 
     wp_register_style( 'css-normalize-substrate-system', $theme_dir . '/assets/css/css-normalize.css', array(), '03.2025' ); 
     wp_register_style( 'utilities', $theme_dir . '/assets/css/utilities.css', array(), '1.1' );
-    wp_register_style( 'wg-css', $theme_dir . '/assets/css/wg.css', array(), '1.00' ); 
-    wp_register_style( 'responsive-767', $theme_dir . '/assets/css/responsive-767.css', array(), '1.00' ); 
-    wp_register_style( 'responsive-1024', $theme_dir . '/assets/css/responsive-1024.css', array(), '1.00' );
+    wp_register_style( 'wg-css', $theme_dir . '/assets/css/wg.min.css', array(), '1.00' ); 
+    wp_register_style( 'responsive-767', $theme_dir . '/assets/css/responsive-767.min.css', array(), '1.00' ); 
+    wp_register_style( 'responsive-1024', $theme_dir . '/assets/css/responsive-1024.min.css', array(), '1.00' );
     
     wp_enqueue_style( 'css-normalize-substrate-system' );
     wp_enqueue_style( 'utilities' );
@@ -261,4 +261,5 @@ add_action('wp_trash_post', 'clear_post_type_globals_cache');
 add_action('untrash_post', 'clear_post_type_globals_cache');
 
 add_action('init', 'set_post_type_globals');*/
+
 
