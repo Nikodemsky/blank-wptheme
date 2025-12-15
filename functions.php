@@ -85,7 +85,7 @@ add_action('init', 'unregister_default_categories_taxonomy');*/
 // Remove "no taxonomy" for radio taxonomy plugin
 /*add_filter( 'radio_buttons_for_taxonomies_no_term_grupa', '__return_false' );*/
 
-// Custom image sizes
+// Custom image sizes: id, width, height, hard-crop
 //add_image_size( 'size-1', 150, 150, false );
 //add_image_size( 'size-2', 300, 300, true );
 
@@ -101,29 +101,19 @@ function disable_core_image_sizes_settings($sizes) {
     unset($sizes['medium_large']);
     unset($sizes['1536x1536']);
     unset($sizes['2048x2048']);
+	
     return $sizes;
 }
 add_filter('intermediate_image_sizes_advanced', 'disable_core_image_sizes_settings');
 
-add_filter('intermediate_image_sizes', function($sizes) {
-    return array_diff($sizes, ['medium_large']);
-});
-
-// IF ACF
-/*function remove_unused_image_sizes_from_acf_wysiwyg($sizes) {
-
-	if (array_filter(['advanced-custom-fields-pro/acf.php', 'advanced-custom-fields/acf.php'], 'is_plugin_active')) :
-
-	    unset($sizes['medium_large']);
-	    unset($sizes['large']);
-	    unset($sizes['thumbnail']);
-	    
-	    return $sizes;
-
-	endif;
- 
+function remove_unused_image_sizes_from_wysiwyg($sizes) {
+	unset($sizes['medium_large']);
+	unset($sizes['1536x1536']);
+	unset($sizes['2048x2048']);
+	
+	return $sizes;
 }
-add_filter('image_size_names_choose', 'remove_unused_image_sizes_from_acf_wysiwyg');*/
+add_filter('image_size_names_choose', 'remove_unused_image_sizes_from_wysiwyg');
 
 // Register custom nav menus
 /*function add_nav_menus() {
@@ -261,5 +251,3 @@ add_action('wp_trash_post', 'clear_post_type_globals_cache');
 add_action('untrash_post', 'clear_post_type_globals_cache');
 
 add_action('init', 'set_post_type_globals');*/
-
-
