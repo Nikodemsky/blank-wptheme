@@ -11,7 +11,7 @@ The theme is designed to work the [The SEO Framework](https://wordpress.org/plug
 While you can change favicon directly from admin panel, custom logo still has to go through customizer - even site-editor still have no support for this.
 
 ### utilities.css: Why so much code for "a" element styling in utilities? 
-* Mostly for fixing the flickering under different circumstances in chromium browsers.
+Mostly for fixing the flickering under different circumstances in chromium browsers.
 
 ### utilities.css: Splide fix?
 https://splidejs.com/ - even tho it's abandoned, still works properly on most of the scenarios, bug-free. Not really fan of [Embla](https://www.embla-carousel.com/) or [Glide](https://glidejs.com/); [Blaze](https://blaze-slider.dev/) would be good alternative as barebone template, but it's abandonware too.
@@ -21,7 +21,7 @@ Spinner is messing up the margins for the submit button styling and :disabled is
 
 ### utilities.css: Normalization fixes?
 * Custom fixes for normalization;
-* As for commented overflow-x-hiddem, overflow with "hidden" value is messing up multiple of native CSS API's, so it's only here if actually needed.
+* As for commented overflow-x-hiddem, overflow with "hidden" value is messing up multiple of native CSS API's, so it's only there if actually needed.
 
 ### functions.php: optional, custom, cached checks for post existence
 Custom functionality - check for posts existence from various types - cache included, before actually go through each loops. 
