@@ -1,0 +1,7 @@
+@media (min-width: 768px) and (max-width: 1024px) {
+  /******** 00 GENERAL CLASSES *******/
+  html, body, .site {
+    max-width: 100%;
+    /* overflow-x: hidden */
+  }
+}/*# sourceMappingURL=responsive-1024.css.map */
