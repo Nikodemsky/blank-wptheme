@@ -17,7 +17,7 @@ add_action( 'after_setup_theme', 'wgblank_content_width', 0 );
 function wgblank_scripts(){wp_enqueue_style('wgblank-style',get_stylesheet_uri(),array(),_S_VERSION);wp_style_add_data('wgblank-style','rtl','replace');}
 add_action('wp_enqueue_scripts','wgblank_scripts');
 
-/*********** SACURITY - HARDENING ***********/
+/*********** SECURITY - HARDENING ***********/
 
 require get_template_directory() . '/inc/security-hardening.php';
 
@@ -25,7 +25,7 @@ require get_template_directory() . '/inc/security-hardening.php';
 
 require get_template_directory() . '/inc/image-sizes.php';
 
-/*********** HELPERS ***********/
+/*********** HELPERS - LOGIN PAGE AND EDITOR ADDONS ***********/
 
 // Custom login page 
 function login_stylesheet() {
@@ -207,5 +207,6 @@ add_action('wp_trash_post', 'clear_post_type_globals_cache');
 add_action('untrash_post', 'clear_post_type_globals_cache');
 
 add_action('init', 'set_post_type_globals');*/
+
 
 
