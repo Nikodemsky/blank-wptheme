@@ -1,6 +1,6 @@
 <?php
 
-// Removes WP version info from rss
+// Removes WP version info
 remove_action('wp_head', 'wp_generator');
 
 function my_secure_generator( $generator, $type ) {
