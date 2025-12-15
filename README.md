@@ -1,6 +1,5 @@
 ### Theme screenshot
-https://www.pexels.com/photo/html-code-270366/
-it's heavy, but it looks cool; placeholder.
+[LINK](https://www.pexels.com/photo/html-code-270366/); placeholder.
 
 ### SEO
 The theme is designed to work the [The SEO Framework](https://wordpress.org/plugins/autodescription/) (Schema markup in header.php)
@@ -13,7 +12,6 @@ While you can change favicon directly from admin panel, custom logo still has to
 
 ### utilities.css: Why so much code for "a" element styling in utilities? 
 * Mostly for fixing the flickering under different circumstances in chromium browsers.
-* As for .35s timing - it feels like sweet spot, for smooth and not too "drastic" transition.
 
 ### utilities.css: Splide fix?
 https://splidejs.com/ - even tho it's abandoned, still works properly on most of the scenarios, bug-free. Not really fan of [Embla](https://www.embla-carousel.com/) or [Glide](https://glidejs.com/); [Blaze](https://blaze-slider.dev/) would be good alternative as barebone template, but it's abandonware too.
@@ -24,15 +22,6 @@ Spinner is messing up the margins for the submit button styling and :disabled is
 ### utilities.css: Normalization fixes?
 * Custom fixes for normalization;
 * As for commented overflow-x-hiddem, overflow with "hidden" value is messing up multiple of native CSS API's, so it's only here if actually needed.
-
-### functions.php: Removal of WP version from RSS
-Security measure.
-
-### functions.php: `add_theme_support( 'custom-line-height' );`
-For styling line-height in site-editor.
-
-### functions.php: Removal of some native image sizes
-Space optimization, those are not really commonly used.
 
 ### functions.php: optional, custom, cached checks for post existence
 Custom functionality - check for posts existence from various types - cache included, before actually go through each loops. 
