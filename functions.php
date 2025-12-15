@@ -4,24 +4,19 @@
 
 if(!defined('_S_VERSION')){define('_S_VERSION','1.0.0');}
 
-require get_template_directory() . '/inc/custom-header.php';
-require get_template_directory() . '/inc/template-tags.php';
-require get_template_directory() . '/inc/customizer.php';
-require get_template_directory() . '/inc/theme-support.php';
-
-/*********** SECURITY - HARDENING ***********/
-
-require get_template_directory() . '/inc/security-hardening.php';
-
-/*********** IMAGE SIZES HANDLING ***********/
-
-require get_template_directory() . '/inc/image-sizes.php';
+require get_template_directory() . '/inc/custom-header.php'; // Custom header support
+require get_template_directory() . '/inc/template-tags.php'; // Helpers, wp_body_open
+require get_template_directory() . '/inc/customizer.php'; // Customizes support
+require get_template_directory() . '/inc/theme-support.php'; // add_theme_support
+require get_template_directory() . '/inc/security-hardening.php'; // Security - hardening
+require get_template_directory() . '/inc/image-sizes.php'; // Image sizes handling
+// require get_template_directory() . '/inc/exists-checks.php'; // Custom, cached checks for post existence
 
 /*********** HELPERS - LOGIN PAGE AND EDITOR ADDONS ***********/
 
 // Custom login page 
 function login_stylesheet() {
-  wp_enqueue_style( 'custom-login', get_stylesheet_directory_uri() . '/assets/login/login.css' );
+  wp_enqueue_style( 'custom-login', get_template_directory() . '/assets/login/login.css' );
 }
 add_action( 'login_enqueue_scripts', 'login_stylesheet' );
 
@@ -103,84 +98,3 @@ function loadk_scripts() {
     
 }
 add_action( 'wp_enqueue_scripts', 'loadk_scripts' );
-
-// Custom, cached checks for post existence
-/*function set_post_type_globals() {
-    
-    global $wpdb, $blog_has_posts, $awards_exists, $people_exist;
-    
-    if (!function_exists('apply_filters') || !has_filter('wpml_current_language')) {
-        $cache_key = 'post_type_globals_default';
-    } else {
-        $current_lang = apply_filters('wpml_current_language', NULL);
-        $cache_key = 'post_type_globals_' . $current_lang;
-    }
-    
-    $cached_results = wp_cache_get($cache_key, 'post_type_globals');
-    
-    if (false === $cached_results) {
-        if (!function_exists('apply_filters') || !has_filter('wpml_current_language')) {
-            $results = $wpdb->get_results("
-                SELECT post_type, COUNT(*) as count
-                FROM {$wpdb->posts} 
-                WHERE post_type IN ('post', 'award', 'osoba')
-                AND post_status = 'publish'
-                GROUP BY post_type
-            ");
-        } else {
-            $current_lang = apply_filters('wpml_current_language', NULL);
-            $results = $wpdb->get_results($wpdb->prepare("
-                SELECT p.post_type, COUNT(p.ID) as count
-                FROM {$wpdb->posts} p
-                INNER JOIN {$wpdb->prefix}icl_translations t ON p.ID = t.element_id
-                WHERE p.post_type IN ('post', 'award', 'osoba')
-                AND p.post_status = 'publish'
-                AND t.element_type LIKE CONCAT('post_', p.post_type)
-                AND t.language_code = %s
-                GROUP BY p.post_type
-            ", $current_lang));
-        }
-        
-        $cached_results = ['post' => 0, 'award' => 0, 'osoba' => 0];
-        foreach ($results as $result) {
-            if ($result->count > 0) {
-                $cached_results[$result->post_type] = 1;
-            }
-        }
-        
-        wp_cache_set($cache_key, $cached_results, 'post_type_globals', 300);
-    }
-    
-    $blog_has_posts = $cached_results['post'];
-    $awards_exists = $cached_results['award'];
-    $people_exist = $cached_results['osoba'];
-}
-
-function clear_post_type_globals_cache($post_id) {
-    $post_type = get_post_type($post_id);
-    if (in_array($post_type, ['post', 'award', 'osoba'])) {
-
-        wp_cache_delete('post_type_globals_default', 'post_type_globals');
-        
-        if (function_exists('apply_filters') && has_filter('wpml_active_languages')) {
-            $active_languages = apply_filters('wpml_active_languages', NULL);
-            if (is_array($active_languages)) {
-                foreach ($active_languages as $lang_code => $language) {
-                    wp_cache_delete('post_type_globals_' . $lang_code, 'post_type_globals');
-                }
-            }
-        }
-    }
-}
-
-add_action('save_post', 'clear_post_type_globals_cache');
-add_action('delete_post', 'clear_post_type_globals_cache');
-add_action('wp_trash_post', 'clear_post_type_globals_cache');
-add_action('untrash_post', 'clear_post_type_globals_cache');
-
-add_action('init', 'set_post_type_globals');*/
-
-
-
-
-
