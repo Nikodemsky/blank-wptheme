@@ -50,6 +50,36 @@ add_filter( 'style_loader_src', 'my_remove_src_version' );
 // Addon supports
 add_theme_support( 'custom-line-height' );
 
+// Removes unused image sizes
+function disable_core_image_sizes() {
+    remove_image_size('medium_large');
+    remove_image_size('1536x1536');
+    remove_image_size('2048x2048');
+}
+add_action('init', 'disable_core_image_sizes');
+
+function disable_core_image_sizes_settings($sizes) {
+    unset($sizes['medium_large']);
+    unset($sizes['1536x1536']);
+    unset($sizes['2048x2048']);
+	
+    return $sizes;
+}
+add_filter('intermediate_image_sizes_advanced', 'disable_core_image_sizes_settings');
+
+function remove_unused_image_sizes_from_wysiwyg($sizes) {
+	unset($sizes['medium_large']);
+	unset($sizes['1536x1536']);
+	unset($sizes['2048x2048']);
+	
+	return $sizes;
+}
+add_filter('image_size_names_choose', 'remove_unused_image_sizes_from_wysiwyg');
+
+// Custom image sizes: id, width, height, hard-crop
+//add_image_size( 'size-1', 150, 150, false );
+//add_image_size( 'size-2', 300, 300, true );
+
 /*********** CUSTOM STYLING ***********/
 
 // Template styles
@@ -85,36 +115,6 @@ add_action('init', 'unregister_default_categories_taxonomy');*/
 // Remove "no taxonomy" for radio taxonomy plugin
 /*add_filter( 'radio_buttons_for_taxonomies_no_term_grupa', '__return_false' );*/
 
-// Custom image sizes: id, width, height, hard-crop
-//add_image_size( 'size-1', 150, 150, false );
-//add_image_size( 'size-2', 300, 300, true );
-
-// Removes unused image sizes
-function disable_core_image_sizes() {
-    remove_image_size('medium_large');
-    remove_image_size('1536x1536');
-    remove_image_size('2048x2048');
-}
-add_action('init', 'disable_core_image_sizes');
-
-function disable_core_image_sizes_settings($sizes) {
-    unset($sizes['medium_large']);
-    unset($sizes['1536x1536']);
-    unset($sizes['2048x2048']);
-	
-    return $sizes;
-}
-add_filter('intermediate_image_sizes_advanced', 'disable_core_image_sizes_settings');
-
-function remove_unused_image_sizes_from_wysiwyg($sizes) {
-	unset($sizes['medium_large']);
-	unset($sizes['1536x1536']);
-	unset($sizes['2048x2048']);
-	
-	return $sizes;
-}
-add_filter('image_size_names_choose', 'remove_unused_image_sizes_from_wysiwyg');
-
 // Register custom nav menus
 /*function add_nav_menus() {
     register_nav_menus( array(
@@ -124,10 +124,10 @@ add_filter('image_size_names_choose', 'remove_unused_image_sizes_from_wysiwyg');
 }
 add_action('init', 'add_nav_menus');*/
 
-// ACF options page
-//if( function_exists('acf_add_options_page') ) { acf_add_options_page('Opcje witryny'); }
+// ACF options page: simple version
+//if( function_exists('acf_add_options_page') ) { acf_add_options_page('Website settings'); }
 
-// ACF options page - full version with array
+// ACF options page: full version, example
 /*add_action('acf/init', 'my_acf_op_init');
 function my_acf_op_init() {
     if( function_exists('acf_add_options_page') ) {
