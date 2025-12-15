@@ -21,6 +21,10 @@ add_action('wp_enqueue_scripts','wgblank_scripts');
 
 require get_template_directory() . '/inc/security-hardening.php';
 
+/*********** IMAGE SIZES HANDLING ***********/
+
+require get_template_directory() . '/inc/image-sizes.php';
+
 /*********** HELPERS ***********/
 
 // Custom login page 
@@ -31,36 +35,6 @@ add_action( 'login_enqueue_scripts', 'login_stylesheet' );
 
 // Addon supports
 add_theme_support( 'custom-line-height' );
-
-// Removes unused image sizes
-function disable_core_image_sizes() {
-    remove_image_size('medium_large');
-    remove_image_size('1536x1536');
-    remove_image_size('2048x2048');
-}
-add_action('init', 'disable_core_image_sizes');
-
-function disable_core_image_sizes_settings($sizes) {
-    unset($sizes['medium_large']);
-    unset($sizes['1536x1536']);
-    unset($sizes['2048x2048']);
-	
-    return $sizes;
-}
-add_filter('intermediate_image_sizes_advanced', 'disable_core_image_sizes_settings');
-
-function remove_unused_image_sizes_from_wysiwyg($sizes) {
-	unset($sizes['medium_large']);
-	unset($sizes['1536x1536']);
-	unset($sizes['2048x2048']);
-	
-	return $sizes;
-}
-add_filter('image_size_names_choose', 'remove_unused_image_sizes_from_wysiwyg');
-
-// Custom image sizes: id, width, height, hard-crop
-//add_image_size( 'size-1', 150, 150, false );
-//add_image_size( 'size-2', 300, 300, true );
 
 /*********** CUSTOM STYLING ***********/
 
@@ -233,4 +207,5 @@ add_action('wp_trash_post', 'clear_post_type_globals_cache');
 add_action('untrash_post', 'clear_post_type_globals_cache');
 
 add_action('init', 'set_post_type_globals');*/
+
 
