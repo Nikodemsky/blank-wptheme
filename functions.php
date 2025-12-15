@@ -72,26 +72,6 @@ add_action('init', 'unregister_default_categories_taxonomy');*/
 }
 add_action('init', 'add_nav_menus');*/
 
-// ACF options page: simple version
-//if( function_exists('acf_add_options_page') ) { acf_add_options_page('Website settings'); }
-
-// ACF options page: full version, example
-/*add_action('acf/init', 'my_acf_op_init');
-function my_acf_op_init() {
-    if( function_exists('acf_add_options_page') ) {
-        $option_page = acf_add_options_page(array(
-            'page_title'    => __('CTA Settings', 'wg-blank'),
-            'menu_title'    => __('CTA Settings', 'wg-blank'),
-            'menu_slug'     => 'theme-general-settings',
-            'capability'    => 'edit_posts',
-            'update_button' => __('Save settings', 'wg-blank'),
-            'icon_url'      => 'dashicons-megaphone',
-            'autoload'      => true,
-            'position'      => 45,
-        ));
-    }
-}*/
-
 // Remove <p> and <br/> from Contact Form 7
 //add_filter('wpcf7_autop_or_not', '__return_false');
 
@@ -199,6 +179,7 @@ add_action('wp_trash_post', 'clear_post_type_globals_cache');
 add_action('untrash_post', 'clear_post_type_globals_cache');
 
 add_action('init', 'set_post_type_globals');*/
+
 
 
 
