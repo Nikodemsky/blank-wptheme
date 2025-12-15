@@ -17,6 +17,10 @@ add_action( 'after_setup_theme', 'wgblank_content_width', 0 );
 function wgblank_scripts(){wp_enqueue_style('wgblank-style',get_stylesheet_uri(),array(),_S_VERSION);wp_style_add_data('wgblank-style','rtl','replace');}
 add_action('wp_enqueue_scripts','wgblank_scripts');
 
+/*********** SACURITY - HARDENING ***********/
+
+require get_template_directory() . '/inc/security-hardening.php';
+
 /*********** HELPERS ***********/
 
 // Custom login page 
@@ -24,28 +28,6 @@ function login_stylesheet() {
   wp_enqueue_style( 'custom-login', get_stylesheet_directory_uri() . '/assets/login/login.css' );
 }
 add_action( 'login_enqueue_scripts', 'login_stylesheet' );
-
-// Removes WP version info from rss
-remove_action('wp_head', 'wp_generator');
-
-function my_secure_generator( $generator, $type ) {
-	return '';
-}
-add_filter( 'the_generator', 'my_secure_generator', 10, 2 );
-
-function my_remove_src_version( $src ) {
-	global $wp_version;
-
-	$version_str = '?ver='.$wp_version;
-	$offset = strlen( $src ) - strlen( $version_str );
-
-	if ( $offset >= 0 && strpos($src, $version_str, $offset) !== FALSE )
-		return substr( $src, 0, $offset );
-
-	return $src;
-}
-add_filter( 'script_loader_src', 'my_remove_src_version' );
-add_filter( 'style_loader_src', 'my_remove_src_version' );
 
 // Addon supports
 add_theme_support( 'custom-line-height' );
@@ -251,3 +233,4 @@ add_action('wp_trash_post', 'clear_post_type_globals_cache');
 add_action('untrash_post', 'clear_post_type_globals_cache');
 
 add_action('init', 'set_post_type_globals');*/
+
