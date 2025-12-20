@@ -19,9 +19,6 @@ function login_stylesheet() {
 }
 add_action( 'login_enqueue_scripts', 'login_stylesheet' );
 
-// Addon supports
-add_theme_support( 'custom-line-height' );
-
 /*********** CUSTOM STYLING ***********/
 
 // Template styles
@@ -97,4 +94,5 @@ function loadk_scripts() {
     
 }
 add_action( 'wp_enqueue_scripts', 'loadk_scripts' );
+
 
