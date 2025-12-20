@@ -10,6 +10,7 @@ require get_template_directory() . '/inc/theme-support.php'; // add_theme_suppor
 require get_template_directory() . '/inc/security-hardening.php'; // Security - hardening
 require get_template_directory() . '/inc/image-sizes.php'; // Image sizes handling
 // require get_template_directory() . '/inc/exists-checks.php'; // Custom, cached checks for post existence
+if (function_exists('get_field')) { require get_template_directory() . '/inc/acf-sanitization.php'; } // ACF sanitization helper functions
 
 /*********** HELPERS - LOGIN PAGE AND EDITOR ADDONS ***********/
 
@@ -94,5 +95,6 @@ function loadk_scripts() {
     
 }
 add_action( 'wp_enqueue_scripts', 'loadk_scripts' );
+
 
 
