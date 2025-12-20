@@ -4,7 +4,6 @@
 
 if(!defined('_S_VERSION')){define('_S_VERSION','1.0.0');}
 
-require get_template_directory() . '/inc/custom-header.php'; // Custom header support
 require get_template_directory() . '/inc/template-tags.php'; // Helpers, wp_body_open
 require get_template_directory() . '/inc/customizer.php'; // Customizes support
 require get_template_directory() . '/inc/theme-support.php'; // add_theme_support
@@ -98,3 +97,4 @@ function loadk_scripts() {
     
 }
 add_action( 'wp_enqueue_scripts', 'loadk_scripts' );
+
