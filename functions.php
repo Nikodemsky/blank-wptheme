@@ -28,17 +28,9 @@ function wg_styles() {
     // Globals
     $theme_dir = get_stylesheet_directory_uri();
 
-    wp_register_style( 'css-normalize-substrate-system', $theme_dir . '/assets/css/css-normalize.min.css', array(), '12.2025' ); 
-    wp_register_style( 'utilities', $theme_dir . '/assets/css/utilities.min.css', array(), '1.1' );
-    wp_register_style( 'wg-css', $theme_dir . '/assets/css/wg.min.css', array(), '1.00' ); 
-    wp_register_style( 'responsive-767', $theme_dir . '/assets/css/responsive-767.min.css', array(), '1.00' ); 
-    wp_register_style( 'responsive-1024', $theme_dir . '/assets/css/responsive-1024.min.css', array(), '1.00' );
-    
-    wp_enqueue_style( 'css-normalize-substrate-system' );
-    wp_enqueue_style( 'utilities' );
-    wp_enqueue_style( 'wg-css' );
-    wp_enqueue_style( 'responsive-767' );
-    wp_enqueue_style( 'responsive-1024' );
+    // Load compiled styles
+    wp_register_style( 'main-css', $theme_dir . '/assets/css/main.min.css', array(), '1.00' );
+    wp_enqueue_style( 'main-css' );
 
 }
 add_action( 'wp_enqueue_scripts', 'wg_styles' );
@@ -95,6 +87,7 @@ function loadk_scripts() {
     
 }
 add_action( 'wp_enqueue_scripts', 'loadk_scripts' );
+
 
 
 
