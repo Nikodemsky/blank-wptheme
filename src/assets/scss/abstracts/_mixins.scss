@@ -1,0 +1,20 @@
+@use 'variables' as *;
+
+/* Transition */
+@mixin default-transition {
+  @if meta.variable-exists(default_animation_time) {
+    -webkit-transition: all var($default_animation_time) ease-in-out;
+    transition: all var($default_animation_time) ease-in-out;
+  }
+}
+
+/** Font sizes - variables **/
+@mixin fluid-font($min, $base, $max) {
+  @if meta.variable-exists($container_width) {
+   font-size: clamp(
+     #{$min}px,
+     calc(#{$base}px + (100cqi - 320px) * 28 / (#{$container_width} - 320)),
+     #{$max}px
+   );
+  }
+}
