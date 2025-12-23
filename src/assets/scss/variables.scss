@@ -13,8 +13,8 @@
 }
 
 /** Colour variables **/
-//$font_color01-id: #______
-//$color: $font_color01
+//$font_color01-id: #______;
+//$color: $font_color01;
 
 /** Breakpoints **/
 $mobiletop_breakpoint: 767px;
@@ -24,21 +24,23 @@ $tablet_top_breakpoint: 1024px;
 /** Font sizes - variables **/
 
 @mixin fluid-font($min, $base, $max) {
-  font-size: clamp(
-    #{$min}px,
-    calc(#{$base}px + (100cqi - 320px) * 28 / (#{$container_width} - 320)),
-    #{$max}px
-  );
+  @if meta.variable-exists($container_width) {
+   font-size: clamp(
+     #{$min}px,
+     calc(#{$base}px + (100cqi - 320px) * 28 / (#{$container_width} - 320)),
+     #{$max}px
+   );
+  }
 }
 
-//$p_size: font-size: @include fluid-font(14, 16, 18);
-//$h1_size: font-size: @include fluid-font(14, 16, 18);
-//$h2_size: font-size: @include fluid-font(14, 16, 18);
-//$h3_size: font-size: @include fluid-font(14, 16, 18);
+//$p_size: font-size: @include fluid-font(__, __, __);
+//$h1_size: font-size: @include fluid-font(__, __, __);
+//$h2_size: font-size: @include fluid-font(__, __, __);
+//$h3_size: font-size: @include fluid-font(__, __, __);
 /*@for $i from 4 through 5 {
   h#{$i} {
-    @include fluid-font(14, 16, 18);
+    @include fluid-font(__, __, __);
   }
 }*/
 
-//Required sizes by empty brackets: min, base, max; 320px is min size of viewport, 100cqi relates to nearest .container width
+//Required sizes by empty brackets: min, base, max; 320px is min. size of viewport, 100cqi relates to nearest .container width
