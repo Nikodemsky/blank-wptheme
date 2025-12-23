@@ -8,16 +8,17 @@ The theme is designed to work the [The SEO Framework](https://wordpress.org/plug
 `function_exists` check HAS to be loaded after `wp_head`, otherwise `tsf` (from The Seo Framework) might not be found.
 
 ### Why Customizer?
-While you can change favicon directly from admin panel, custom logo still has to go through customizer.
+While favicon can be changed directly from admin panel, custom logo still has to go through customizer.
 
-### utilities.css: Why so much code for "a" element styling in utilities? 
+### utilities.css: Why so much styling for "a" element in utilities? 
 Mostly for fixing the flickering under different circumstances in chromium browsers.
 
 ### utilities.css: Splide fix?
-https://splidejs.com/ - even tho it's abandoned, still works properly on most of the scenarios, bug-free. Not really fan of [Embla](https://www.embla-carousel.com/) or [Glide](https://glidejs.com/); [Blaze](https://blaze-slider.dev/) would be good alternative as barebone template, but it's abandonware too.
+*Optional: Slider/Carousel module: https://splidejs.com/ - abandonware, but still works properly on most of the scenarios, bug-free. 
+Not really fan of [Embla](https://www.embla-carousel.com/); [Blaze](https://blaze-slider.dev/) would be good alternative as barebone template, but it's abandonware too and doesn't provide so much acccesibility.
 
 ### utilities.css: CF7 fix
-Spinner is messing up the margins for the submit button styling and :disabled is pretty much self-explanatory.
+*Optional: Spinner is messing up the margins for the submit button styling and :disabled is pretty much self-explanatory.
 
 ### utilities.css: Normalization fixes?
 * Custom fixes for normalization;
