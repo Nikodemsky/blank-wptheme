@@ -1,15 +1,6 @@
 @use "sass:meta"
 @use 'variables' as *;
 
-/* Global variables */
- //$container_width: __px
- //$default_animation_time: .__s
-
-=default-transition
- @if meta.variable-exists(default_animation_time)
-  -webkit-transition: all var($default_animation_time) ease-in-out
-  transition: all var($default_animation_time) ease-in-out
-
 /* Text highlight styling */
 //::target-text
  //background-color: #000
@@ -22,7 +13,7 @@ a
  html, body, .site
   max-width: 100%
  
-/*** Containers ***/
+/** Containers **/
 
 .container
  position: relative
@@ -31,3 +22,4 @@ a
  container-name: wrap
  @if meta.variable-exists(container_width)
   width: clamp(320px, calc(100% - 60px), var($container_width))
+
