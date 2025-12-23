@@ -17,11 +17,11 @@ p:first-of-type{margin-top:0}
 p:last-of-type{margin-bottom:0}
 
 html{-webkit-text-size-adjust: 100%}
-ul{list-style: disc}
-ol{list-style: decimal}
+ul{list-style:disc}
+ol{list-style:decimal}
 
 /* Normalization for body element on WordPress */
-body{margin: 0;position:relative}
+body{margin:0;position:relative}
 
 /* Fix for flickering and other potential problems on interactive elements for webkit browsers, mostly Chrome */
 a{outline:none!important;text-decoration:none;-webkit-backface-visibility:hidden!important;backface-visibility:hidden!important;transform:translate3D(0,0,0);-webkit-transform:translate3D(0,0,0)}
@@ -44,11 +44,11 @@ a{outline:none!important;text-decoration:none;-webkit-backface-visibility:hidden
 .hidden{display:none !important}
 @media (min-width: 1025px) and (orientation:landscape){.hidden--desktop{display:none !important}}
 @media (min-width: 768px) and (max-width: 1024px){.hidden--tablet{display:none !important;}}
-@media (max-width: 767px){.hidden--mobile{display: none !important;}}
+@media (max-width: 767px){.hidden--mobile{display:none !important;}}
 
 /* Container fit for embeds and images */
 embed,iframe,object{max-width:100%}
-img{height: auto;max-width:100%}
+img{height:auto;max-width:100%}
 
 /* Form normalization fixes */
 [type="checkbox"],[type="radio"]{box-sizing:border-box;padding:0}
@@ -69,5 +69,3 @@ button:-moz-focusring,[type="button"]:-moz-focusring,[type="reset"]:-moz-focusri
 .screen-reader-text{border:0;clip:rect(1px,1px,1px,1px);clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute!important;width:1px;word-wrap:normal!important}
 .screen-reader-text:focus{background-color:#f1f1f1;border-radius:3px;box-shadow:0 0 2px 2px #0009;clip:auto!important;clip-path:none;color:#21759b;display:block;font-size:.875rem;font-weight:700;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}
 #primary[tabindex="-1"]:focus{outline:0;}
-
-
