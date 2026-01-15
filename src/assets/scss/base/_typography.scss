@@ -1,6 +1,14 @@
 @use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
 
 body {
-  //font-family: '', sans-serif;
-  //line-height: __px;
+  //font-family: '';
+  line-height: normal;
+  //color: $font_color01-id;
 }
+
+//@for $i from 1 through 6 {
+  //h#{$i} {
+    //font-family: 'Urbanist';
+  //}
+//}
