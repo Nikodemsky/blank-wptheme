@@ -27,10 +27,10 @@ $tablet_top_breakpoint: 1024px;
 //$h1_size: font-size: @include fluid-font(__, __, __);
 //$h2_size: font-size: @include fluid-font(__, __, __);
 //$h3_size: font-size: @include fluid-font(__, __, __);
-/*@for $i from 4 through 5 {
-  h#{$i} {
-    @include fluid-font(__, __, __);
-  }
-}*/
+//@for $i from 4 through 5 {
+  //h#{$i} {
+    //@include fluid-font(__, __, __);
+  //}
+//}
 
 //Required sizes by empty brackets: min, base, max;
