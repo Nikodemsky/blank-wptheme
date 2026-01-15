@@ -27,6 +27,7 @@ a {
   width: 100%;
   @if meta.variable-exists(container_width) {
     //width: clamp(320px, calc(100% - 60px), var($container_width));
-    max-width: min(calc(100% - 60px), var($container_width));
+    max-width: min(calc(100% - 60px), $container_width);
   }
 }
+
