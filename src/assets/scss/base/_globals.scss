@@ -1,5 +1,6 @@
 @use "sass:meta";
 @use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
 
 /* Text highlight styling */
 /*::target-text {
@@ -30,4 +31,5 @@ a {
     max-width: min(calc(100% - 60px), $container_width);
   }
 }
+
 
