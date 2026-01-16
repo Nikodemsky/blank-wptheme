@@ -1,22 +1,44 @@
+@use "sass:meta";
 @use 'variables' as *;
 
 /* Transition */
 @mixin default-transition {
   @if meta.variable-exists(default_animation_time) {
-    -webkit-transition: all var($default_animation_time) ease-in-out;
-    transition: all var($default_animation_time) ease-in-out;
+    -webkit-transition: all $default_animation_time ease-in-out;
+    transition: all $default_animation_time ease-in-out;
   }
 }
 
 /** Font sizes - variables **/
 @mixin fluid-font($min, $base, $max) {
-  @if meta.variable-exists($container_width) {
+  @if meta.variable-exists('container_width') {
    font-size: clamp(
-     #{$min}px,
-     calc(#{$base}px + (100cqi - 320px) * 28 / (#{$container_width} - 320)),
-     #{$max}px
+     #{$min}em,
+     calc(#{$base}em + (100cqi - 320px) * 28 / (#{$container_width_raw} - 320)),
+     #{$max}em
    );
   }
-}
+} 
 
 // 320px is min. size of viewport; 100cqi relates to nearest .container width
+
+/** Font face include **/
+@mixin font-face(
+  $family,
+  $file-name,
+  $local-name,
+  $local-name-alt,
+  $weight: normal,
+  $style: normal
+) {
+  @font-face {
+    font-family: $family;
+    src: local($local-name),
+         local($local-name-alt),
+         url('assets/fonts/subset-#{$file-name}.woff2') format('woff2'),
+         url('assets/fonts/subset-#{$file-name}.woff') format('woff');
+    font-weight: $weight;
+    font-style: $style;
+    font-display: swap;
+  }
+}
