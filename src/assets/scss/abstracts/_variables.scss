@@ -2,15 +2,8 @@
 
 /** Global variables **/
  //$container_width: __px;
+ //$container_width_raw: __;
  //$default_animation_time: .__s;
-
-/* Transition */
-@mixin default-transition {
-  @if meta.variable-exists(default_animation_time) {
-    -webkit-transition: all var($default_animation_time) ease-in-out;
-    transition: all var($default_animation_time) ease-in-out;
-  }
-}
 
 /** Colour variables **/
 //$font_color01-id: #______;
