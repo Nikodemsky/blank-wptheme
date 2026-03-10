@@ -10,12 +10,12 @@
 
 	<!--  Schema markup for posts / Zapis schema dla wpisow blogowych -->
 	<?php /* if (is_singular('post') && function_exists('tsf')) :
-		get_template_part( 'template-parts/schema/schema.php', 'post' ); // needs further edits on the file itself
+		get_template_part( 'template-parts/schema/schema', 'post' ); // needs further edits on the file itself
 	endif; */ ?>
 
 	<!-- Schema for homepage - LocalBusiness / Zapis schema dla strony glownej - typ Localbusiness -->
 	<?php /* if (is_page_template('template-kontakt.php') && function_exists('tsf')) : ?>
-		get_template_part( 'template-parts/schema/schema.php', 'business' ); // needs further edits on the file itself
+		get_template_part( 'template-parts/schema/schema', 'business' ); // needs further edits on the file itself
 	<?php endif; */ ?>
 
 </head>
