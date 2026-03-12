@@ -1,9 +1,10 @@
 @use "sass:meta";
+@use 'functions' as *;
 
 /** Global variables **/
  //$container_width: __px;
- //$container_width_raw: __;
- //$default_animation_time: .__s;
+ //$container_width_raw: __; /* Raw value as in number without any additions like px/rem/em etc. */
+ //$default_animation_time: .__s; /* Raw number value */
 
 /** Colour variables **/
 //$font_color01-id: #______;
@@ -16,10 +17,10 @@ $tablet_top_breakpoint: 1024px;
 
 /** Font sizes - variables **/
 
-//$p_size: font-size: @include fluid-font(__, __, __);
-//$h1_size: font-size: @include fluid-font(__, __, __);
-//$h2_size: font-size: @include fluid-font(__, __, __);
-//$h3_size: font-size: @include fluid-font(__, __, __);
+//$p_size: @include fluid-font(__, __, __);
+//$h1_size: @include fluid-font(__, __, __);
+//$h2_size: @include fluid-font(__, __, __);
+//$h3_size: @include fluid-font(__, __, __);
 //@for $i from 4 through 5 {
   //h#{$i} {
     //@include fluid-font(__, __, __);
@@ -27,3 +28,9 @@ $tablet_top_breakpoint: 1024px;
 //}
 
 //Required sizes by empty brackets: min, base, max;
+
+/** Font variables **/
+//$default_lineheight: 1.2;
+
+//$button_default_txt: fluid-font-function(__, __, __);
+//$section_header: fluid-font-function(__, __, __);
