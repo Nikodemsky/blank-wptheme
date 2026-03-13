@@ -1,9 +1,9 @@
 @use "sass:meta";
-@use 'functions' as *;
+@use 'functions' as *; // remove this line if raw value is provided
+//@use 'functions' as * with ($container_width_raw: __); /* raw value as in number without any additions like px/rem/em etc. */
 
 /** Global variables **/
  //$container_width: __px;
- //$container_width_raw: __; /* Raw value as in number without any additions like px/rem/em etc. */
  //$default_animation_time: .__s; /* Raw number value */
 
 /** Colour variables **/
@@ -30,7 +30,18 @@ $tablet_top_breakpoint: 1024px;
 //Required sizes by empty brackets: min, base, max;
 
 /** Font variables **/
-//$default_lineheight: 1.2;
+
+// $name: fluid-font-function(__, __, __);
+// raw number values, output in rem;
+// required sizes by empty brackets: min, base, max;
+
+$w_light: 300;
+$w_regular: 400;
+$w_medium: 500;
+$w_bold: 700;
+$w_extrabold: 900;
+
+$default_lineheight: 1.2;
 
 //$button_default_txt: fluid-font-function(__, __, __);
 //$section_header: fluid-font-function(__, __, __);
