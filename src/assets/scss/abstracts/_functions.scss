@@ -1,14 +1,17 @@
 @use 'sass:meta';
 
+$container_width_raw: null !default;
+
 @function fluid-font-function($min, $base, $max) {
-  @if meta.variable-exists('container_width_raw') {
+  @if $container_width_raw != null {
+    $range: ($max - $min) * 16; // convert rem difference to px
     @return clamp(
       #{$min}rem,
-      calc(#{$base}rem + (100cqi - 320px) * 28 / (#{$container_width_raw} - 320)),
+      calc(#{$min}rem + (100cqi - 320px) * #{$range} / (#{$container_width_raw} - 320)),
       #{$max}rem
     );
   }
-  @return #{$base}rem; // fallback if variable isn't set
+  @return #{$base}rem;
 }
 
 // 320px is min. size of viewport; 100cqi relates to nearest .container width
