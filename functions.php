@@ -5,7 +5,7 @@
 if(!defined('_S_VERSION')){define('_S_VERSION','1.0.0');}
 
 require get_template_directory() . '/inc/template-tags.php'; // Helpers, wp_body_open
-require get_template_directory() . '/inc/customizer.php'; // Customizes support
+require get_template_directory() . '/inc/customizer.php'; // Customizer support
 require get_template_directory() . '/inc/theme-support.php'; // add_theme_support
 require get_template_directory() . '/inc/security-hardening.php'; // Security - hardening
 require get_template_directory() . '/inc/image-sizes.php'; // Image sizes handling
@@ -71,6 +71,7 @@ function loadk_scripts() {
 
     // SVG loader - global
     //wp_enqueue_script( 'svg-loader', $theme_dir . '/assets/js/svg-loader.js', array(), '', true );
+    // usage & docs: https://github.com/shubhamjain/svg-loader
 
     // Smoothscroll - only as fallback/alternative to browser's native scroll-behaviour:smooth
     //wp_enqueue_script( 'scroll-to-id', $theme_dir . '/assets/js/scrolltoid.js', array(), '', true );
