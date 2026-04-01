@@ -31,7 +31,7 @@ function wgblank_customize_partial_blogdescription() {
 function wgblank_customize_preview_js() {
     wp_enqueue_script(
         "ts-customizer",
-        get_template_directory_uri() . "/assets//js/customizer.js",
+        get_template_directory_uri() . "/assets/js/customizer.js",
         ["customize-preview"],
         _S_VERSION,
         true
