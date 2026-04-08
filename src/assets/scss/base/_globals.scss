@@ -8,8 +8,10 @@
   color: #fff;
 }*/
 
-a {
-  @include default-transition;
+@media (prefers-reduced-motion: no-preference) {
+  * {
+    @include default-transition;
+  }
 }
 
 @media (max-width: $tablet_top_breakpoint) {
