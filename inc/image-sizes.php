@@ -56,3 +56,12 @@ if (function_exists('get_field')) {
 ID, width, height, hard-crop */
 //add_image_size( 'size-1', 150, 150, false );
 //add_image_size( 'size-2', 300, 300, true );
+
+// Make the new sizes selectable from admin ui
+/* function image_sizes_merge( $size_names ) {
+	$new_sizes = array(
+		'size-1' => __( 'Site name', 'wg-blank' ),
+	);
+	return array_merge( $size_names, $new_sizes );
+}
+add_filter( 'image_size_names_choose', 'image_sizes_merge' ); */
