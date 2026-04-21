@@ -1,3 +1,5 @@
+@use '../abstracts/variables' as *;
+
 /*** Utilities ***/
 
 /* Splide fix */
@@ -31,6 +33,16 @@ a:focus:not(:focus-visible) {outline:none!important}
 /* Helper classes */
 .fullwidth{width:100%}
 
+@media (max-width: $mobiletop_breakpoint){
+  .text--mobile-center{text-align:center}
+  .block--mobile-fullwidth{width:100%}
+}
+
+@media (min-width: $tablet_bottom_breakpoint) and (max-width: $tablet_top_breakpoint) and (orientation:portrait){
+  .text--tablet-center{text-align:center}
+  .block--tablet-fullwidth{width:100%}
+}
+
 /* Flex helpers */
 .row{display:flex;flex-direction:row;align-items:flex-start;position:relative}
 .row--justify-start{justify-content:flex-start}
@@ -44,6 +56,18 @@ a:focus:not(:focus-visible) {outline:none!important}
 .row--wrap{flex-wrap:wrap}
 .row--dir-reverse{flex-direction:row-reverse}
 .row--col-reverse{flex-direction:column-reverse}
+
+@media (max-width: $mobiletop_breakpoint){
+  .row--mobile-col{flex-direction:column}
+  .row--mobile-col-reverse{flex-direction:column-reverse}
+  .row--mobile-align-middle{align-items:center}
+}
+
+@media (min-width: $tablet_bottom_breakpoint) and (max-width: $tablet_top_breakpoint) and (orientation:portrait){
+  .row--tablet-col{flex-direction:column}
+  .row--talet-col-reverse{flex-direction:column-reverse}
+  .row--tablet-align-middle{align-items:center}
+}
 
 /* Helpers - hidden elements per device */
 .hidden{display:none !important}
