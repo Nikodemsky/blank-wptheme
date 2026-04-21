@@ -1,0 +1,18 @@
+@use '../abstracts/variables' as *;
+
+/** Globally used font **/
+
+body {
+  //font-family: '';
+  line-height: normal;
+  //color: $font_color01-id;
+}
+
+/** Elements **/
+
+/* @for $i from 1 through 6 {
+  h#{$i} {
+    font-family: $secondary_font_type;
+    font-weight: $default_font-weight_headers;
+  }
+} */

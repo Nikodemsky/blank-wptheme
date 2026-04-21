@@ -1,0 +1,22 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+/* Example of usage:
+
+@include font-face(
+  'Kanit',
+  'Kanit-Regular',
+  'Kanit-Regular',
+  'Kanit-Regular',
+  400,
+  normal
+);
+
+@include font-face(
+  'Kanit',
+  'Kanit-Italic',
+  'Kanit-Italic',
+  'Kanit-Italic',
+  400,
+  italic
+); */
