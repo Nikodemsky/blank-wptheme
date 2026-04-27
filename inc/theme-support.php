@@ -6,7 +6,7 @@ if (!function_exists("wgblank_setup")):
     {
         load_theme_textdomain(
             "wg-blank",
-            get_template_directory() . "/languages"
+            get_template_directory() . "/assets/lang/"
         );
         //add_theme_support("automatic-feed-links");
         add_theme_support("title-tag");
