@@ -13,8 +13,8 @@
 		get_template_part( 'template-parts/schema/schema', 'post' ); // needs further edits on the file itself
 	endif; */ ?>
 
-	<!-- Schema for homepage - LocalBusiness / Zapis schema dla strony glownej - typ Localbusiness -->
-	<?php /* if (is_page_template('template-kontakt.php') && function_exists('tsf')) : ?>
+	<!-- Schema markup for homepage - LocalBusiness / Zapis schema dla strony glownej - typ Localbusiness -->
+	<?php /* if (is_front_page() && function_exists('tsf')) : ?>
 		get_template_part( 'template-parts/schema/schema', 'business' ); // needs further edits on the file itself
 	<?php endif; */ ?>
 
