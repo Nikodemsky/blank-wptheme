@@ -2,21 +2,26 @@
 
 /*********** CORE DIRECTIVES - DO NOT MODIFY ***********/
 
+// Custom defines
+if (!defined('THEME_DIR')){ define('THEME_DIR', get_template_directory()); }
+
+// Global version
 if(!defined('_S_VERSION')){define('_S_VERSION','1.0.0');}
 
-require get_template_directory() . '/inc/template-tags.php'; // Helpers, wp_body_open
-require get_template_directory() . '/inc/customizer.php'; // Customizer support
-require get_template_directory() . '/inc/theme-support.php'; // add_theme_support
-require get_template_directory() . '/inc/security-hardening.php'; // Security - hardening
-require get_template_directory() . '/inc/image-sizes.php'; // Image sizes handling
+// Modules, helpers and additional defines
+require THEME_DIR . '/inc/template-tags.php'; // Helpers, wp_body_open
+require THEME_DIR . '/inc/customizer.php'; // Customizer support
+require THEME_DIR . '/inc/theme-support.php'; // add_theme_support
+require THEME_DIR . '/inc/security-hardening.php'; // Security - hardening
+require THEME_DIR . '/inc/image-sizes.php'; // Image sizes handling
 // require get_template_directory() . '/inc/exists-checks.php'; // Custom, cached checks for post existence
-if (function_exists('get_field')) { require get_template_directory() . '/inc/acf-sanitization.php'; } // ACF sanitization helper functions
+if (class_exists( 'ACF' )) { require THEME_DIR . '/inc/acf-sanitization.php'; } // ACF sanitization helper functions
 
 /*********** HELPERS - LOGIN PAGE AND EDITOR ADDONS ***********/
 
 // Custom login page 
 function login_stylesheet() {
-  wp_enqueue_style( 'custom-login', get_template_directory() . '/assets/login/login.css' );
+  wp_enqueue_style( 'custom-login', THEME_DIR . '/assets/login/login.css' );
 }
 add_action( 'login_enqueue_scripts', 'login_stylesheet' );
 
@@ -25,12 +30,12 @@ add_action( 'login_enqueue_scripts', 'login_stylesheet' );
 // Template styles
 function wg_styles() {
 
-    // Globals
-    $theme_dir = get_stylesheet_directory_uri();
-
     // Load compiled styles
-    wp_register_style( 'main-css', $theme_dir . '/assets/css/main.min.css', array(), '1.00' );
+    wp_register_style( 'main-css', THEME_DIR . '/assets/css/main.min.css', array(), '1.00' );
     wp_enqueue_style( 'main-css' );
+
+    // Inits and imports
+    wp_enqueue_script( 'main', THEME_DIR .'/assets/js/main.min.js', array(), '1.00', array( 'strategy' => 'defer', 'in-footer' => true));
 
 }
 add_action( 'wp_enqueue_scripts', 'wg_styles' );
@@ -45,7 +50,9 @@ add_action( 'wp_enqueue_scripts', 'wg_styles' );
 add_action('init', 'unregister_default_categories_taxonomy');*/
 
 // Remove "no taxonomy" for radio taxonomy plugin
-/*add_filter( 'radio_buttons_for_taxonomies_no_term_grupa', '__return_false' );*/
+/* if ( class_exists( 'Radio_Buttons_For_Taxonomies' ) ) {
+    add_filter( 'radio_buttons_for_taxonomies_no_term_grupa', '__return_false' );
+} */
 
 // Register custom nav menus
 /*function add_nav_menus() {
@@ -57,40 +64,6 @@ add_action('init', 'unregister_default_categories_taxonomy');*/
 add_action('init', 'add_nav_menus');*/
 
 // Remove <p> and <br/> from Contact Form 7
-//add_filter('wpcf7_autop_or_not', '__return_false');
-
-// Custom scripts
-function loadk_scripts() {
-
-    // Globals
-    //$theme_dir = get_stylesheet_directory_uri();
-    //$q_id = get_queried_object_id();
-
-    // Menu toggle
-    //wp_enqueue_script( 'menu-toggle', $theme_dir.'/assets/js/menu-toggle.js', array(), '1.0', true );
-
-    // SVG loader - global
-    //wp_enqueue_script( 'svg-loader', $theme_dir . '/assets/js/svg-loader.js', array(), '', true );
-    // usage & docs: https://github.com/shubhamjain/svg-loader
-
-    // Smoothscroll - only as fallback/alternative to browser's native scroll-behaviour:smooth
-    //wp_enqueue_script( 'scroll-to-id', $theme_dir . '/assets/js/scrolltoid.js', array(), '', true );
-    /* use as: onclick="smoothScrollToId('your-section-id', 500, 30); return false;" on <a> elements;
-    first parameter is ID, second is duration and third is offset */
-
-    // Splide - Home
-    /*if (is_home()) {
-        wp_enqueue_script( 'splide-js', $theme_dir . '/assets/splide/splide.min.js', array(), '', false );
-        wp_enqueue_style( 'splide-css', $theme_dir . '/assets/splide/splide.min.css' );
-        wp_enqueue_style( 'splide-theme-css', $theme_dir . '/assets/splide/splide-default.min.css' );
-        wp_enqueue_script( 'splide-tm', $theme_dir . '/assets/js/splide-home.js', array(), '', true );
-    }*/
-    
-}
-add_action( 'wp_enqueue_scripts', 'loadk_scripts' );
-
-
-
-
-
-
+/* if ( class_exists( 'WPCF7' ) ) {
+    add_filter('wpcf7_autop_or_not', '__return_false');
+} */
