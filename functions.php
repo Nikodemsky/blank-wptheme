@@ -4,6 +4,7 @@
 
 // Custom defines
 if (!defined('THEME_DIR')){ define('THEME_DIR', get_template_directory()); }
+if (!defined('THEME_DIR_URI')) { define('THEME_DIR_URI', get_template_directory_uri()); } 
 
 // Global version
 if(!defined('_S_VERSION')){define('_S_VERSION','1.0.0');}
@@ -21,7 +22,7 @@ if (class_exists( 'ACF' )) { require THEME_DIR . '/inc/acf-sanitization.php'; } 
 
 // Custom login page 
 function login_stylesheet() {
-  wp_enqueue_style( 'custom-login', THEME_DIR . '/assets/login/login.css' );
+  wp_enqueue_style( 'custom-login', THEME_DIR_URI . '/assets/login/login.css' );
 }
 add_action( 'login_enqueue_scripts', 'login_stylesheet' );
 
@@ -31,11 +32,11 @@ add_action( 'login_enqueue_scripts', 'login_stylesheet' );
 function wg_styles() {
 
     // Load compiled styles
-    wp_register_style( 'main-css', THEME_DIR . '/assets/css/main.min.css', array(), '1.00' );
+    wp_register_style( 'main-css', THEME_DIR_URI . '/assets/css/main.min.css', array(), '1.00' );
     wp_enqueue_style( 'main-css' );
 
     // Inits and imports
-    wp_enqueue_script( 'main', THEME_DIR .'/assets/js/main.min.js', array(), '1.00', array( 'strategy' => 'defer', 'in-footer' => true));
+    wp_enqueue_script( 'main', THEME_DIR_URI .'/assets/js/main.min.js', array(), '1.00', array( 'strategy' => 'defer', 'in-footer' => true));
 
 }
 add_action( 'wp_enqueue_scripts', 'wg_styles' );
