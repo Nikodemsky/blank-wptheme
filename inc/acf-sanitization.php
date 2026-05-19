@@ -3,51 +3,30 @@
 /**
  * Helper function to get escaped single field from ACF
  *
- * @param string $field_key The ACF field key/name
- * @param mixed $post_id Post ID (optional, defaults to current post)
- * @param bool $format_value Whether to format the value
- * @param string $escape_method esc_html / esc_attr or NULL for none
- * @return array|string
+ * @param string        $field_key     ACF field key/name
+ * @param mixed         $post_id       Post ID (optional)
+ * @param bool          $format_value  Whether to format the value
+ * @param string|null   $escape_method esc_html / esc_attr / esc_url or null for none
+ * @return string|array
  */
 function get_field_escaped($field_key, $post_id = false, $format_value = true, $escape_method = 'esc_html')
 {
     $field = get_field($field_key, $post_id, $format_value);
-    
-    /* Check for null and falsy values and always return empty string */
-    if ($field === null || $field === false) {
-        return '';
-    }
-    
-    /* Handle arrays recursively */
-    if (is_array($field)) {
-        return escape_field_value($field, $escape_method);
-    } else {
-        return $escape_method === null ? $field : $escape_method($field);
-    }
-}
 
-/**
- * Recursively escape array values
- *
- * @param array $field
- * @param string $escape_method
- * @return array
- */
-function escape_field_value($field, $escape_method = 'esc_html')
-{
-    if (!is_array($field)) {
-        return $escape_method === null ? $field : $escape_method($field);
+    if (empty($field)) {
+        return is_array($field) ? [] : '';
     }
-    
-    $field_escaped = [];
-    foreach ($field as $key => $value) {
-        if (is_array($value)) {
-            $field_escaped[$key] = escape_field_value($value, $escape_method);
-        } else {
-            $field_escaped[$key] = $escape_method === null ? $value : $escape_method($value);
-        }
+
+    if (is_array($field)) {
+        array_walk_recursive($field, function (&$value) use ($escape_method) {
+            if ($escape_method && is_string($value)) {
+                $value = $escape_method($value);
+            }
+        });
+        return $field;
     }
-    return $field_escaped;
+
+    return $escape_method ? $escape_method($field) : $field;
 }
 
 /*** USAGE EXAMPLES
