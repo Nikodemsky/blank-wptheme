@@ -14,7 +14,7 @@
 	endif; */ ?>
 
 	<!-- Schema markup for homepage - LocalBusiness / Zapis schema dla strony glownej - typ Localbusiness -->
-	<?php /* if (is_front_page() && function_exists('tsf')) : ?>
+	<?php /* if (is_front_page()) : ?>
 		get_template_part( 'template-parts/schema/schema', 'business' ); // needs further edits on the file itself
 	<?php endif; */ ?>
 
