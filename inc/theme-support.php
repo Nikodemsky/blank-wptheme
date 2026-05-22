@@ -19,7 +19,6 @@ if (!function_exists("wgblank_setup")):
             "gallery",
             "caption",
             "style",
-            "script",
         ]);
         /*add_theme_support(
             "custom-background",
