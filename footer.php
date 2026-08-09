@@ -1,3 +1,10 @@
+<?php
+
+// Guard
+defined( 'ABSPATH' ) || exit;
+
+?>
+
 <footer class="site__footer">
 </footer><!-- #colophon -->
 

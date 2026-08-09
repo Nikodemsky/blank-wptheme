@@ -1,4 +1,9 @@
 <?php
+
+// Guard
+defined( 'ABSPATH' ) || exit;
+
+// Cached exist checks with support for WPML/Polylang
 function set_post_type_globals() {
     global $wpdb, $blog_has_posts, $awards_exists, $people_exist;
     

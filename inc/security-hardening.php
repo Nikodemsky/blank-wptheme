@@ -1,5 +1,8 @@
 <?php
 
+// Guard
+defined( 'ABSPATH' ) || exit;
+
 // Removes WP version info
 remove_action('wp_head', 'wp_generator');
 

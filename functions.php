@@ -1,5 +1,8 @@
 <?php
 
+// Guard
+defined( 'ABSPATH' ) || exit;
+
 /*********** CORE DIRECTIVES - DO NOT MODIFY ***********/
 
 // Custom defines

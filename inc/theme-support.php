@@ -1,5 +1,8 @@
 <?php
 
+// Guard
+defined( 'ABSPATH' ) || exit;
+
 // Theme support directives
 if (!function_exists("wgblank_setup")):
     function wgblank_setup()

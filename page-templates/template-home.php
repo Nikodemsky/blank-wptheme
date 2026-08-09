@@ -1,6 +1,9 @@
 
 <?php
 
+// Guard
+defined( 'ABSPATH' ) || exit;
+
 /* Template name: Home */
 
 // Header

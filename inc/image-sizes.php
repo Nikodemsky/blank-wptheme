@@ -1,5 +1,8 @@
 <?php
 
+// Guard
+defined( 'ABSPATH' ) || exit;
+
 /* Remove unused image sizes;
 NOTE: medium & large sizes needs to be additionally removed in CMS admin panel by setting both size values to 0 */
 function disable_core_image_sizes() {

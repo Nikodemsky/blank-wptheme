@@ -1,5 +1,8 @@
 <?php
 
+// Guard
+defined( 'ABSPATH' ) || exit;
+
 /**
  * Helper function to get escaped single field from ACF
  *

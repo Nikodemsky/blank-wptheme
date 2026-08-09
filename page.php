@@ -1,4 +1,9 @@
-<?php get_header(); ?>
+<?php 
+
+// Guard
+defined( 'ABSPATH' ) || exit;
+
+get_header(); ?>
 
 <main id="primary" class="site__main">
 
