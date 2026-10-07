@@ -18,7 +18,8 @@ require THEME_DIR . '/inc/customizer.php'; // Customizer support
 require THEME_DIR . '/inc/theme-support.php'; // add_theme_support
 require THEME_DIR . '/inc/security-hardening.php'; // Security - hardening
 require THEME_DIR . '/inc/image-sizes.php'; // Image sizes handling
-// require get_template_directory() . '/inc/exists-checks.php'; // Custom, cached checks for post existence
+// require THEME_DIR . '/inc/exists-checks.php'; // Custom, cached checks for post existence
+// require THEME_DIR . '/inc/id-helpers.php'; // Custom helpers for checking translated post ID - WPML/Polylang support & transients set
 if (class_exists( 'ACF' )) { require THEME_DIR . '/inc/acf-sanitization.php'; } // ACF sanitization helper functions
 
 /*********** HELPERS - LOGIN PAGE AND EDITOR ADDONS ***********/
