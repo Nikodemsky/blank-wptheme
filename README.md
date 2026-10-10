@@ -15,7 +15,7 @@ Mostly for fixing the flickering under different circumstances in chromium brows
 
 ### 05.2. [/src/assets/scss/utilities.css](https://github.com/Nikodemsky/blank-wptheme/blob/2deafa3a923ab0082caeeaecc66bf433a60f306b/src/assets/scss/utilities/_utilities.scss#L6): Splide fix?
 *Optional: Slider/Carousel module: https://splidejs.com/<br>
-- abandonware, but still works properly on most of the scenarios, bug-free.<br>
+\- abandonware, but still works properly on most of the scenarios, bug-free.<br>
 Later might switch to [Embla](https://www.embla-carousel.com/), but only after v9 goes stable.
 
 ### 05.3. [/src/assets/scss/utilities.css](https://github.com/Nikodemsky/blank-wptheme/blob/2deafa3a923ab0082caeeaecc66bf433a60f306b/src/assets/scss/utilities/_utilities.scss#L9-L11): CF7 fix
