@@ -40,7 +40,7 @@ function wg_styles() {
     wp_enqueue_style( 'main-css' );
 
     // Inits and imports
-    wp_enqueue_script( 'main', THEME_DIR_URI .'/assets/js/main.min.js', array(), '1.00', array( 'strategy' => 'defer', 'in-footer' => true));
+    wp_enqueue_script( 'main', THEME_DIR_URI .'/assets/js/main.min.js', array(), '1.00', array( 'strategy' => 'defer', 'in_footer' => true));
 
 }
 add_action( 'wp_enqueue_scripts', 'wg_styles' );
