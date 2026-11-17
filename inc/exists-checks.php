@@ -3,20 +3,23 @@
 defined( 'ABSPATH' ) || exit;
 
 /**
- * Cached exist checks with support for WPML/Polylang
+ * Cached exist checks with support for WPML/Polylang/Bogo
  *
  * Usage
  *   if ( theme_post_type_has_posts( 'award' ) ) { ... } // current language
  *   if ( theme_post_type_has_posts( 'osoba', 'en' ) ) { ... } // specific language
  *   $blog_has_posts // as single variable
+ *
+ * Bogo notes
+ *   - language keys are locales (pl_PL, en_US); 'en' / 'en-US' are mapped to the closest available locale
+ *   - CPT must be registered as localizable via 'bogo_localizable_post_types' filter,
+ *     otherwise it is checked across all languages
  */
 
 // Config
 function theme_tracked_post_types() {
 	return apply_filters( 'theme_tracked_post_types', array(
-		'specialization'  => '',
-		'product' => '',
-		'person' => '',
+		// 'specialization'  => '',
 		// 'realizacja' => 'projects_exist',
 	) );
 }
@@ -32,7 +35,24 @@ function theme_ml_plugin() {
 	if ( defined( 'ICL_SITEPRESS_VERSION' ) ) {
 		return 'wpml';
 	}
+	if ( defined( 'BOGO_VERSION' ) && function_exists( 'bogo_get_default_locale' ) ) {
+		return 'bogo';
+	}
 	return '';
+}
+
+// Normalize language passed by hand (Bogo uses locales: 'en' => 'en_US')
+function theme_ml_normalize_lang( $lang ) {
+	if ( ! is_string( $lang ) || '' === $lang ) {
+		return '';
+	}
+
+	if ( 'bogo' === theme_ml_plugin() && function_exists( 'bogo_get_closest_locale' ) ) {
+		$closest = bogo_get_closest_locale( $lang );
+		return $closest ? $closest : $lang;
+	}
+
+	return $lang;
 }
 
 // Current language slug check
@@ -43,6 +63,10 @@ function theme_ml_current_lang() {
 			break;
 		case 'wpml':
 			$lang = apply_filters( 'wpml_current_language', null );
+			break;
+		case 'bogo':
+			// Bogo filters 'locale' on front-end only; in admin treat as "all languages"
+			$lang = is_admin() ? '' : get_locale();
 			break;
 		default:
 			$lang = '';
@@ -58,6 +82,8 @@ function theme_ml_is_translated( $post_type ) {
 			return function_exists( 'pll_is_translated_post_type' ) && pll_is_translated_post_type( $post_type );
 		case 'wpml':
 			return (bool) apply_filters( 'wpml_is_translated_post_type', false, $post_type );
+		case 'bogo':
+			return function_exists( 'bogo_is_localizable_post_type' ) && bogo_is_localizable_post_type( $post_type );
 	}
 	return false;
 }
@@ -126,6 +152,21 @@ function theme_build_post_type_flags( array $types ) {
 				$types
 			) );
 			break;
+
+		case 'bogo':
+			// Posts without _locale meta belong to the default locale (same as bogo_count_posts)
+			$rows = $wpdb->get_results( $wpdb->prepare(
+				"SELECT DISTINCT p.post_type,
+				        COALESCE( NULLIF( pm.meta_value, '' ), %s ) AS lang
+				 FROM {$wpdb->posts} p
+				 LEFT JOIN {$wpdb->postmeta} pm
+				        ON pm.post_id = p.ID
+				       AND pm.meta_key = '_locale'
+				 WHERE p.post_status = 'publish'
+				   AND p.post_type IN ($in)",
+				array_merge( array( bogo_get_default_locale() ), $types )
+			) );
+			break;
 	}
 
 	foreach ( $rows as $row ) {
@@ -153,7 +194,10 @@ function theme_post_type_flags( $flush = false ) {
 	}
 
 	$types = array_keys( theme_tracked_post_types() );
-	$sig    = md5( implode( ',', $types ) . '|' . theme_ml_plugin() );
+	$plugin = theme_ml_plugin();
+	// Bogo: posts without _locale fall back to the default locale, so its change must rebuild the cache
+	$extra  = ( 'bogo' === $plugin ) ? bogo_get_default_locale() : '';
+	$sig    = md5( implode( ',', $types ) . '|' . $plugin . '|' . $extra );
 	$cached = get_transient( THEME_PT_FLAGS_KEY );
 
 	if (
@@ -181,9 +225,7 @@ function theme_post_type_flags( $flush = false ) {
 function theme_post_type_has_posts( $post_type, $lang = null ) {
 	$flags = theme_post_type_flags();
 
-	if ( null === $lang ) {
-		$lang = theme_ml_current_lang();
-	}
+	$lang = ( null === $lang ) ? theme_ml_current_lang() : theme_ml_normalize_lang( $lang );
 
 	if ( '' !== $lang && theme_ml_is_translated( $post_type ) ) {
 		return ! empty( $flags[ $lang ][ $post_type ] );
@@ -246,3 +288,22 @@ function theme_pt_flags_on_language_change( $object_id, $terms, $tt_ids, $taxono
 	}
 }
 add_action( 'set_object_terms', 'theme_pt_flags_on_language_change', 10, 4 );
+
+// Check for Bogo - language is stored in _locale post meta
+function theme_pt_flags_on_locale_meta( $meta_id, $object_id, $meta_key ) {
+	if (
+		'_locale' === $meta_key
+		&& 'publish' === get_post_status( $object_id )
+		&& theme_is_tracked_post_type( get_post_type( $object_id ) )
+	) {
+		clear_post_type_globals_cache();
+	}
+}
+add_action( 'added_post_meta', 'theme_pt_flags_on_locale_meta', 10, 3 );
+add_action( 'updated_post_meta', 'theme_pt_flags_on_locale_meta', 10, 3 );
+add_action( 'deleted_post_meta', 'theme_pt_flags_on_locale_meta', 10, 3 );
+
+// Check filters
+/* add_filter( 'bogo_localizable_post_types', function ( $types ) {
+	return array_merge( $types, array( ''," ) );
+} ); */
