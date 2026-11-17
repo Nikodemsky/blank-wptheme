@@ -1,6 +1,6 @@
 <?php
 
-// Helper function to get translated post ID
+// Helper function to get translated post ID (WPML / Polylang / Bogo)
 function get_translated_id(int $post_id, string $post_type = 'page'): int {
 
     // WPML
@@ -13,6 +13,39 @@ function get_translated_id(int $post_id, string $post_type = 'page'): int {
     if (function_exists('pll_get_post')) {
         $translated = pll_get_post($post_id);
         return $translated ? (int) $translated : $post_id;
+    }
+
+    // Bogo
+    if (function_exists('bogo_get_post_translation')) {
+        return bogo_translated_id($post_id, $post_type);
+    }
+
+    return $post_id;
+}
+
+// Bogo: translations are linked by _original_post meta, language is in _locale meta
+function bogo_translated_id(int $post_id, string $post_type = 'page'): int {
+
+    // Bogo filters 'locale' on front-end only
+    if (is_admin()) {
+        return $post_id;
+    }
+
+    if (!bogo_is_localizable_post_type($post_type)) {
+        return $post_id;
+    }
+
+    $locale = get_locale();
+
+    if (bogo_get_post_locale($post_id) === $locale) {
+        return $post_id;
+    }
+
+    $translation = bogo_get_post_translation($post_id, $locale);
+
+    // Bogo returns translations with any status - skip drafts / private / trashed
+    if ($translation && 'publish' === get_post_status($translation)) {
+        return (int) $translation->ID;
     }
 
     return $post_id;
@@ -28,17 +61,18 @@ function get_page_id_by_template(string $template): int {
 
         if ($id === false) {
             $ids = get_posts([
-                'post_type'        => 'page',
-                'post_status'      => 'publish',
-                'posts_per_page'   => 1,
-                'fields'           => 'ids',
-                'meta_key'         => '_wp_page_template',
-                'meta_value'       => $template,
-                'orderby'          => 'ID',
-                'order'            => 'ASC',
-                'suppress_filters' => true, // WPML
-                'lang'             => '',   // Polylang
-                'no_found_rows'    => true,
+                'post_type'                  => 'page',
+                'post_status'                => 'publish',
+                'posts_per_page'             => 1,
+                'fields'                     => 'ids',
+                'meta_key'                   => '_wp_page_template',
+                'meta_value'                 => $template,
+                'orderby'                    => 'ID',
+                'order'                      => 'ASC',
+                'suppress_filters'           => true, // WPML
+                'lang'                       => '',   // Polylang
+                'bogo_suppress_locale_query' => true, // Bogo
+                'no_found_rows'              => true,
             ]);
 
             $id = $ids ? (int) $ids[0] : 0;
